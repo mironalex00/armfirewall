@@ -1,0 +1,31 @@
+{
+  "name": "armwall",
+  "version": "1.0.0",
+  "description": "Web UI for firewall",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Alexandru Miron",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "forever": "^4.0.3",
+    "hbs": "^4.2.0",
+    "https": "^1.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16",
+    "ping": "^0.4.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16"
+  }
+}
