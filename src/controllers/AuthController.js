@@ -12,22 +12,22 @@ function login(req, res){
 function auth(req, res){
     const data = req.body;
     if(!data || (!data.authEmail || !data.authPassword) || (!data.authEmail.trim().length === 0 || !data.authPassword.trim().length === 0)){
-        res.render('authentication/login', {warn: 'E-Mail y/o Contraseña vacíos'})
+        res.status(400).send('E-Mail y/o Contraseña vacíos')
     }else{
         req.getConnection((err, conn) => {
             if(err) {
                 logger.error(err.message);
-                res.render('authentication/login', {error: 'Error al consultar los datos...'});
+                res.status(503).send('Error al consultar los datos...');
             }else{
                 conn.query('SELECT * FROM user WHERE authEmail = ? or authUser = ?', [data.authEmail, data.authEmail], (err, rows) => {
                     if(err || rows.length === 0){
                         if(err) logger.error(err.message);
-                        res.render('authentication/login', {warn: 'E-Mail y/o Contraseña incorrectos'});
+                        res.status(400).send('E-Mail y/o Contraseña incorrectos');
                     }else{
                         const result = Object.values(JSON.parse(JSON.stringify(rows))).find(() => true);
                         bcrypt.compare(data.authPassword, result.authPassword, (err, isMatch) => {
                             if(!isMatch){
-                                res.render('authentication/login', {warn: 'E-Mail y/o Contraseña incorrectos'})
+                                res.status(400).send('E-Mail y/o Contraseña incorrectos');
                             }else{
                                 req.session.loggedin = true;
                                 req.session.name = result.fullName;
@@ -37,7 +37,8 @@ function auth(req, res){
                                     req.session.cookie.expires = false
                                 }
                                 logger.info(`Usuario (${req.session.name}) ha iniciado una nueva sesión...`);
-                                res.redirect('/');
+                                // res.redirect('/');
+                                res.sendStatus(200);
                             }
                         })
                     }

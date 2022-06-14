@@ -2,6 +2,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    overflow: hidden;
 }
 
 p {
@@ -81,6 +82,11 @@ a:focus {
 #sidebar ul.components {
     /* padding: 20px 0; */
     border-bottom: 1px solid #47748b;
+    height: 100vh;
+    overflow-y: auto;
+}
+#sidebar ul.components::-webkit-scrollbar {
+    scrollbar-width: none;
 }
 
 #sidebar ul p, #topmenu > * {

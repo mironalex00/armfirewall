@@ -71,3 +71,51 @@ warn: Bloqueado intento de solicitud de recurso en construcción.
 error: No permitido, tipo de servidor no Linux.
 warn: Bloqueado intento de solicitud de recurso en construcción.
 warn: Bloqueado intento de solicitud de recurso en construcción.
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+error: No permitido, tipo de servidor no Linux.
+error: connect ECONNREFUSED 127.0.0.1:3306
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Bloqueado intento de solicitud de recurso en construcción.info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+error: connect ECONNREFUSED 127.0.0.1:3306
+error: connect ECONNREFUSED 127.0.0.1:3306
+error: connect ECONNREFUSED 127.0.0.1:3306
+error: No permitido, tipo de servidor no Linux.
+error: connect ECONNREFUSED 127.0.0.1:3306
+error: No permitido, tipo de servidor no Linux.
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+error: No permitido, tipo de servidor no Linux.
+info: Application listening on port 443
+error: No permitido, tipo de servidor no Linux.
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+error: No permitido, tipo de servidor no Linux.
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+error: No permitido, tipo de servidor no Linux.
+error: No permitido, tipo de servidor no Linux.
+warn: Bloqueado intento de solicitud de recurso en construcción.

@@ -8,6 +8,7 @@ const mysql = require('mysql');
 const logger = require('./src/utils/logger');
 //  IMPORTACIONES EXTRAS
 const express = require('express');
+const cors = require('cors')
 const {engine} = require('express-handlebars');
 const myConnection = require('express-myconnection');
 const session = require('express-session');
@@ -21,14 +22,21 @@ const sysRoutes = require('./src/routes/system');
 //  DECLARACION APP
 const app = express();
 
+// DECLARACION USO CORS
+app.use(cors())
+
 // HBS HANDLEBARS
+function yearHandlebar(){
+    return new Date().getFullYear();
+}
 
 //  SE LE INDICARA A LA APLICACION QUE USARA EL MOTOR DE PLANTILLAS HBS
 app.set('views', __dirname + '/src/views');
 app.engine('.hbs', engine({
     extname: '.hbs',
+    partialsDir: __dirname + '/src/views/partials',
     helpers : {
-        
+        now: yearHandlebar
     }
 }));
 app.set('view engine', 'hbs');

@@ -34,7 +34,6 @@ function checkPermissions(){
 
 function reboot(req, res){
   const isLinux = checkPermissions();
-
   req.getConnection((err, conn) => {
     if(err) {
         logger.error(err.message);
@@ -55,7 +54,6 @@ function reboot(req, res){
 }
 function shutdown(req, res){
   const isLinux = checkPermissions();
-
   req.getConnection((err, conn) => {
     if(err) {
         logger.error(err.message);
@@ -97,8 +95,7 @@ function pingtest(host) {
   return new Promise((resolve, reject) => {
     ping.sys.probe(host, function (isAlive) {
         var msg = isAlive ? 'host ' + host + ' is alive' : 'host ' + host + ' is dead';
-        console.log(msg);
-
+        logger.info(msg);
         resolve(isAlive);
     });
   });

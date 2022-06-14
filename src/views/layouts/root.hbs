@@ -120,7 +120,15 @@
                     </nav>
                     <!-- Page Content  -->
                     <div id="content">
-                        {{{body}}}
+                        <div class="col-12">
+                            <div class="row">
+                                {{> section }}
+                                <div class="col-12">
+                                    {{{body}}}
+                                </div>
+                                {{> footer }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
