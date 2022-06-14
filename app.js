@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'web',
     port: 3306,
     database: 'armfirewall'
 }, 'pool'));

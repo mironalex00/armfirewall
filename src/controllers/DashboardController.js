@@ -23,7 +23,7 @@ function licenses(req, res){
         }else if(req.session.loggedin !== true){
             res.redirect('/auth/login');
         }else{
-            res.status(200).render('licenses', { title: 'ARMwall - Licenses', layout: 'root' });
+            res.status(200).render('licenses', { title: 'ARMwall - Licenses', layout: 'root', name: req.session.name });
         }
     });    
 }
@@ -35,7 +35,7 @@ function main(req, res){
         }else if(req.session.loggedin !== true){
             res.redirect('/auth/login');
         }else{
-            res.status(200).render('dashboard', { title: 'ARMwall - Dashboard', layout: 'root' });
+            res.status(200).render('dashboard', { title: 'ARMwall - Dashboard', layout: 'root', name: req.session.name });
         }
     });    
 }
@@ -47,7 +47,7 @@ function passwordManager(req, res){
         }else if(req.session.loggedin !== true){
             res.redirect('/auth/login');
         }else{
-            res.status(200).render('passwords', { title: 'ARMwall - Passwords', layout: 'root' });
+            res.status(200).render('passwords', { title: 'ARMwall - Passwords', layout: 'root', name: req.session.name });
         }
     });    
 }
