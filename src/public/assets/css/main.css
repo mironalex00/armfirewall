@@ -46,6 +46,12 @@ a:focus {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
+#topmenu button[role="button"]{
+    color: white;
+    width: 100%;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+}
+
 .wrapper {
     display: flex;
     width: 100%;
@@ -73,7 +79,7 @@ a:focus {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    /* padding: 20px 0; */
     border-bottom: 1px solid #47748b;
 }
 
@@ -91,6 +97,7 @@ a:focus {
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
+    cursor: pointer;
 }
 
 #sidebar ul li.active>a,
@@ -99,7 +106,7 @@ a[aria-expanded="true"] {
     background: #6d7fcc;
 }
 
-a[data-toggle="collapse"] {
+a[data-bs-toggle="collapse"] {
     position: relative;
 }
 

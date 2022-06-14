@@ -37,8 +37,12 @@
                 <h3>Oops! Error del Cliente</h3>
                 <h1><span>4</span><span>0</span><span>4</span></h1>
             </div>
-            <h2>No se ha encontrado lo que buscabas</h2>
-            <a href="/"><span class="arrow"></span>Retroceder</a>
+            {{#if message}}
+                <h2>{{message}}</h2>
+            {{else}}
+                <h2>No se ha encontrado lo que buscabas</h2>
+            {{/if}}
+            <a {{#if hidebutton}} class="d-none" {{/if}} href="/"><span class="arrow"></span>Retroceder</a>
         </div>
     </div>
 </div>

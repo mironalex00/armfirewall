@@ -12,7 +12,7 @@
         {{/if}}
     </title>
     <!--CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -22,23 +22,25 @@
             <div class="col-12" id="topmenu">
                 <div class="row mt-2">
                     <div class="col-3 col-sm-2">
-                        <button onclick="window.location.href = '/';" class="btn btn-light-outline h2 bg-transparent" role="button">ARMwall</button>
+                        <button onclick="window.location.href = '/';" class="btn btn-light-outline h2 bg-transparent text-white" role="button">ARMwall</button>
                     </div>
                     <div class="col">
                         <button type="button" class="btn bg-transparent btn-light" onclick="toggleSidebar(this)"><i class="bi bi-arrow-90deg-left"></i></button>
                     </div>
+                    {{#if app.name}}
                     <div class="col-6 text-right">
                         <p class="text-white">{{app.name}}</p>
                     </div>
+                    {{/if}}
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 p-0">
                 <div class="wrapper">
                     <!-- Sidebar  -->
                     <nav id="sidebar">
                         <ul class="list-unstyled components">
                             <li class="active">
-                                <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Dashboard</a>
+                                <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true">Dashboard</a>
                                 <ul class="collapse show list-unstyled" id="dashboard">
                                     <li>
                                         <a href="/dashboard/passwords">Contrase&ntilde;a</a>
@@ -58,10 +60,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#system" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sistema</a>
+                                <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#system" aria-expanded="false">Sistema</a>
                                 <ul class="collapse list-unstyled" id="system">
                                     <li>
-                                        <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuraci&oacute;n</a>
+                                        <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#settings" aria-expanded="false">Configuraci&oacute;n</a>
                                         <ul class="collapse list-unstyled" id="settings">
                                             <li>
                                                 <a href="/settings/restore">Restauraci&oacute;n de F&aacute;brica</a>
@@ -77,10 +79,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#firewall" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cortafuegos</a>
+                                <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#firewall" aria-expanded="false">Cortafuegos</a>
                                 <ul class="collapse list-unstyled" id="firewall">
                                     <li>
-                                        <a href="#interfaces" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Interfaces</a>
+                                        <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#interfaces" aria-expanded="false">Interfaces</a>
                                         <ul class="collapse list-unstyled" id="interfaces">
                                             <li>
                                                 <a href="/firewall/wan/1/setup">Configurar WAN</a>
@@ -91,7 +93,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#rules" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reglas</a>
+                                        <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#rules" aria-expanded="false">Reglas</a>
                                         <ul class="collapse list-unstyled" id="rules">
                                             <li>
                                                 <a href="/firewall/wan/1/rules">Configurar WAN</a>
@@ -104,7 +106,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#power" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Encendido</a>
+                                <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#power" aria-expanded="false">Encendido</a>
                                 <ul class="collapse list-unstyled" id="power">
                                     <li>
                                         <a href="/system/reboot">Reiniciar</a>
@@ -125,9 +127,8 @@
         </div>
     </div>
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <script src="/assets/js/main.js"></script>
 </body>
 </html>

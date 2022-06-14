@@ -8,24 +8,20 @@ const mysql = require('mysql');
 const logger = require('./src/utils/logger');
 //  IMPORTACIONES EXTRAS
 const express = require('express');
-// const hbs = require('hbs');
 const {engine} = require('express-handlebars');
 const myConnection = require('express-myconnection');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 //  IMPORTACION RUTAS
 const indexRoutes = require('./src/routes/index');
+const dashboardRoutes = require('./src/routes/dashboard');
 const authRoutes = require('./src/routes/authentication');
 const sysRoutes = require('./src/routes/system');
 
 //  DECLARACION APP
 const app = express();
 
-//  SE LE INDICARA A LA APLICACION QUE USARA EL MOTOR DE PLANTILLAS HBS
-// app.set('view engine', 'hbs');
-// app.set('views', path.join(__dirname, '/src/views'));
-// hbs.registerPartials(path.join(__dirname, '/src/views'));
-// app.use(express.static(path.join(__dirname, '/src/views/layouts')))
+// HBS HANDLEBARS
 
 //  SE LE INDICARA A LA APLICACION QUE USARA EL MOTOR DE PLANTILLAS HBS
 app.set('views', __dirname + '/src/views');
@@ -36,7 +32,6 @@ app.engine('.hbs', engine({
     }
 }));
 app.set('view engine', 'hbs');
-
 
 //  SE LE INDICARA A LA APLICACION QUE USARA BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -51,7 +46,7 @@ app.use(myConnection(mysql, {
     password: '',
     port: 3306,
     database: 'armfirewall'
-}));
+}, 'pool'));
 
 //  SE LE INDICA A LA APLICACION LA CONFIGURACION DE LAS SESIONES
 app.use(session({
@@ -79,6 +74,8 @@ app.use("/media", express.static(path.join(__dirname, '/src/public/media')));
 
 //  ENRUTAMIENTO MAIN
 app.use('/', indexRoutes);
+//  ENRUTAMIENTO DASHBOARD
+app.use('/dashboard', dashboardRoutes);
 //  ENRUTAMIENTO LOGIN
 app.use('/auth', authRoutes);
 //  ENRUTAMIENTO SYSTEM

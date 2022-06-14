@@ -37,8 +37,13 @@
                 <h3>Oops! Error del Servidor</h3>
                 <h1><span>5</span><span>0</span><span>0</span></h1>
             </div>
-            <h2>Ocurri&oacute; un error por nuestra parte</h2>
-            <a href="/"><span class="arrow"></span>Retroceder</a>
+            {{#if message}}
+                <h2>{{message}}</h2>
+            {{else}}
+                <h2>Ocurri&oacute; un error por nuestra parte</h2>
+            {{/if}}
+            <a {{#if hidebutton}} class="d-none" {{/if}} href="/"><span class="arrow"></span>Retroceder</a>
         </div>
     </div>
 </div>
+<script>document.body.classList.replace('bg-dark', 'bg-light')</script>
