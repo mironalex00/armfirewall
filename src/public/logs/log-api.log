@@ -1,106 +1,16 @@
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-error: No permitido, tipo de servidor no Linux.
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-warn: Bloqueado intento de solicitud de recurso en construcción.
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-info: Usuario (undefined) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Application listening on port 443
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: No permitido, tipo de servidor no Linux.
-error: connect ECONNREFUSED 127.0.0.1:3306
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-info: Usuario (ARM-Firewall Administrator) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-info: Application listening on port 443
-info: Application listening on port 443
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: NO)
-info: Application listening on port 443
-error: ER_BAD_FIELD_ERROR: Unknown column 'authEmail' in 'where clause'
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: No permitido, tipo de servidor no Linux.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-error: No permitido, tipo de servidor no Linux.
-error: connect ECONNREFUSED 127.0.0.1:3306
+error: Error al ejecutar el comando (sudo -S reboot now), motivo: Command failed: echo "manager" | sudo -S reboot now
+"sudo" no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable.
+
 info: Application listening on port 443
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: connect ECONNREFUSED 127.0.0.1:3306
 error: No permitido, tipo de servidor no Linux.
-error: connect ECONNREFUSED 127.0.0.1:3306
-error: No permitido, tipo de servidor no Linux.
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-info: Application listening on port 443
-error: No permitido, tipo de servidor no Linux.
-info: Application listening on port 443
-error: No permitido, tipo de servidor no Linux.
+error: Error al ejecutar el comando (sudo -S reboot now), motivo: Command failed: echo "manager" | sudo -S reboot now
+"sudo" no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable.
+
 info: Application listening on port 443
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-warn: Bloqueado intento de solicitud de recurso en construcción.
-warn: Bloqueado intento de solicitud de recurso en construcción.
+error: No permitido, tipo de servidor no Linux.
 error: No permitido, tipo de servidor no Linux.
 info: Application listening on port 443
 info: Application listening on port 443
@@ -108,14 +18,19 @@ info: Application listening on port 443
 info: Application listening on port 443
 info: Application listening on port 443
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: host 127.0.0.1 is alive
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
 info: Application listening on port 443
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-info: Application listening on port 443
-info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
-info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Bloqueado intento de solicitud de recurso en construcción.
 error: No permitido, tipo de servidor no Linux.
-error: No permitido, tipo de servidor no Linux.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
 warn: Bloqueado intento de solicitud de recurso en construcción.

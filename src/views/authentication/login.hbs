@@ -6,7 +6,7 @@
                     <h2 class="text-uppercase text-center">Autenticaci&oacute;n</h3>
                 </div>
                 <div class="col-10 offset-1 col-md-8 offset-lg-2 mt-5">
-                    <form method="POST" action="/auth/login" id="authForm" name="authForm">
+                    <form method="POST" action="/auth/login" id="authForm" name="authForm" autocomplete="off">
                         <div class="form-group">
                             <input type="text" class="form-control" id="authEmail" name="authEmail" aria-describedby="emailHelp" placeholder="Enter email">
                             <small id="emailHelp" class="form-text text-muted">Recuerda, tu cuenta es privada.</small>
@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="authPassword" name="authPassword" placeholder="Enter password">
                         </div>
-                        <div class="form-check mb-4">
+                        <div class="form-check mt-4 mb-4">
                             <input type="checkbox" class="form-check-input" id="rememberCheck" name="hasToRemember">
                             <label class="form-check-label" for="rememberCheck">Recordar nombre de usuario</label>
                         </div>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-7 d-none d-md-block bg-image" style="background-image: url('https://i.pinimg.com/originals/7a/76/33/7a7633c0022200e493f01922afa9f27e.jpg'); height: auto">
+        <div class="col me-5 d-none d-md-block bg-image" style="background-image: url('https://i.pinimg.com/originals/7a/76/33/7a7633c0022200e493f01922afa9f27e.jpg'); height: auto">
             <div class="d-flex flex-column justify-content-center align-items-center h-100">
                 <h1 class="align-middle text-white text-uppercase">User Portal</h1>
             </div>

@@ -69,7 +69,12 @@ app.set('port', 443);
 https.createServer({
     cert: fs.readFileSync(path.join(__dirname, '/src/public/certs/arm.crt')),
     key: fs.readFileSync(path.join(__dirname, '/src/public/certs/arm.key'))
-},app).listen(app.get('port'), () => logger.info(`Application listening on port ${app.get('port')}`));
+},app).listen(app.get('port'), (err) => {
+    if(err) 
+    logger.error(`Application error: ${err.message}`);
+    else
+    logger.info(`Application listening on port ${app.get('port')}`);
+});
 //  SE LE DICE A LA APP QUE SI HAY UNA CONEXION HTTP ENTRANTE AUTOMATICAMENTE REDIRIJA A HTTPS
 http.createServer(function (req, res) {
     res.writeHead(301, { "Location": 'https://' + req.headers.host + req.url });
@@ -96,4 +101,8 @@ app.use((req, res, next) => {
     }else{
         res.status(404).render('errors/404', { layout: 'root' });
     }
+})
+
+process.on('uncaughtException', (error, origin) => {
+    logger.error(`Error por parte de servidor: ${error.message.replace(/\n/g, ' ')} - ${origin}`);
 })

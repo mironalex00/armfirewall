@@ -1,5 +1,13 @@
 <link rel="stylesheet" href="https://colorlib.com/etc/404/colorlib-error-404-3/css/style.css" crossorigin="anonymous">
 <style>
+    #notfound {
+        height: fit-content;
+    }
+    #notfound .notfound {
+        left: 50%;
+        -webkit-transform: translate(-50%,25%);
+        -ms-transform: translate(-50%,25%);
+    }
     .notfound a {
         font-family: 'Raleway', sans-serif;
         display: inline-block;
@@ -19,6 +27,11 @@
             -ms-transform: rotate(135deg);
                 transform: rotate(135deg);
     }
+    @media only screen and (max-width: 480px){
+        .notfound h2 {
+            margin-top: 10%;
+        }
+    }
     @media only screen and (max-width: 767px) {
         .notfound .notfound-404 {
             height: 122px;
@@ -26,12 +39,13 @@
         }
         .notfound .notfound-404 h1 {
             font-size: 122px;
-            letter-spacing: -0.2em;
+            margin-top: 5%;
+            letter-spacing: calc(1rem - 0.25em);
         }
     }
 </style>
-<div class="col-12">
-    <div id="notfound">
+<div class="position-relative">
+    <div id="notfound" class="w-100 position-absolute top-50">
         <div class="notfound">
             <div class="notfound-404">
                 <h3>Oops! Error del Cliente</h3>

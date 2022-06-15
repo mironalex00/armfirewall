@@ -5,6 +5,19 @@ body {
     overflow: hidden;
 }
 
+*::-webkit-scrollbar-track{
+    background-color:#242d4200
+}
+*::-webkit-scrollbar-thumb{
+    background-color:#464d61;
+    background-clip:padding-box;
+    border:2px solid #242d4200;
+    border-radius:30px
+}
+*::-webkit-scrollbar{
+    width:10px
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -85,9 +98,6 @@ a:focus {
     height: 100vh;
     overflow-y: auto;
 }
-#sidebar ul.components::-webkit-scrollbar {
-    scrollbar-width: none;
-}
 
 #sidebar ul p, #topmenu > * {
     color: #fff;
@@ -142,7 +152,7 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -156,6 +166,15 @@ a.article:hover {
     background-size: cover;
     background-position: 50%;
     border-radius: 25px;
+}
+#header {
+    top: auto;
+}
+#footer{
+    bottom: 0;
+}
+#footer, #header {
+    background: #7386D5;
 }
 
 /* ---------------------------------------------------

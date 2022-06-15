@@ -1,25 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {{#if title}}
-            {{title}}
-        {{else}}
-            ARMwall
-        {{/if}}
-    </title>
-    <!--CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    {{> docHead }}
 </head>
 <body class="bg-dark">
     <div class="container-fluid pl-0">
         <div class="row">
-            <div class="col-12" id="topmenu">
+            <div class="col-12 border-bottom border-light" id="topmenu">
                 <div class="row mt-2">
                     <div class="col-3 col-sm-2">
                         <button onclick="window.location.href = '/';" class="btn btn-light-outline h2 bg-transparent text-white" role="button">ARMwall</button>
@@ -28,7 +15,7 @@
                         <button type="button" class="btn bg-transparent btn-light" onclick="toggleSidebar(this)"><i class="bi bi-arrow-90deg-left"></i></button>
                     </div>
                     {{#if name}}
-                    <div class="col-6 col-md-2 text-right">
+                    <div class="col-6 col-md-3 text-right text-end">
                         <p class="text-white">{{name}}</p>
                     </div>
                     {{/if}}
@@ -37,7 +24,7 @@
             <div class="col-12 p-0">
                 <div class="wrapper">
                     <!-- Sidebar  -->
-                    <nav id="sidebar">
+                    <nav id="sidebar" class="border-end border-light">
                         <ul class="list-unstyled components">
                             <li class="active">
                                 <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true">Dashboard</a>
@@ -119,11 +106,11 @@
                         </ul>
                     </nav>
                     <!-- Page Content  -->
-                    <div id="content">
-                        <div class="col-12">
-                            <div class="row">
+                    <div id="content" class="overflow-auto">
+                        <div class="position-relative">
+                            <div class="position-absolute w-100">
                                 {{> section }}
-                                <div class="col-12">
+                                <div class="col-12 mt-5">
                                     {{{body}}}
                                 </div>
                                 {{> footer }}
@@ -135,8 +122,6 @@
         </div>
     </div>
     <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <script src="/assets/js/main.js"></script>
+    {{> docFoot }}
 </body>
 </html>
