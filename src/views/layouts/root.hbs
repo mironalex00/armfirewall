@@ -3,7 +3,7 @@
 <head>
     {{> docHead }}
 </head>
-<body class="bg-dark">
+<body class="bg-dark overflow-x-hidden">
     <div class="container-fluid pl-0">
         <div class="row">
             <div class="col-12 border-bottom border-light" id="topmenu">
@@ -26,7 +26,7 @@
                     <!-- Sidebar  -->
                     <nav id="sidebar" class="border-end border-light">
                         <ul class="list-unstyled components">
-                            <li class="active">
+                            <li>
                                 <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true">Dashboard</a>
                                 <ul class="collapse show list-unstyled" id="dashboard">
                                     <li>
@@ -53,15 +53,15 @@
                                         <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#settings" aria-expanded="false">Configuraci&oacute;n</a>
                                         <ul class="collapse list-unstyled" id="settings">
                                             <li>
-                                                <a href="/settings/restore">Restauraci&oacute;n de F&aacute;brica</a>
+                                                <a href="/system/settings/restore">Restauraci&oacute;n de F&aacute;brica</a>
                                             </li>
                                             <li>
-                                                <a href="/settings/backup">Copia de Seguridad</a>
+                                                <a href="/system/settings/backup">Copia de Seguridad</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="/settings/depuration">Depuraci&oacute;n</a>
+                                        <a href="/system/settings/depuration">Depuraci&oacute;n</a>
                                     </li>
                                 </ul>
                             </li>
@@ -71,23 +71,13 @@
                                     <li>
                                         <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#interfaces" aria-expanded="false">Interfaces</a>
                                         <ul class="collapse list-unstyled" id="interfaces">
-                                            <li>
-                                                <a href="/firewall/wan/1/setup">Configurar WAN</a>
-                                            </li>
-                                            <li>
-                                                <a href="/firewall/lan/1/setup">Configurar LAN 1</a>
-                                            </li>
+                                            {{interfacesHandlebar "firewall/interfaces"}}
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#rules" aria-expanded="false">Reglas</a>
-                                        <ul class="collapse list-unstyled" id="rules">
-                                            <li>
-                                                <a href="/firewall/wan/1/rules">Configurar WAN</a>
-                                            </li>
-                                            <li>
-                                                <a href="/firewall/lan/1/rules">Configurar LAN 1</a>
-                                            </li>
+                                        <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#reglas" aria-expanded="false">Reglas</a>
+                                        <ul class="collapse list-unstyled" id="reglas">
+                                            {{interfacesHandlebar "firewall/reglas"}}
                                         </ul>
                                     </li>
                                 </ul>
@@ -96,21 +86,21 @@
                                 <a class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#power" aria-expanded="false">Encendido</a>
                                 <ul class="collapse list-unstyled" id="power">
                                     <li>
-                                        <a href="/system/reboot">Reiniciar</a>
+                                        <a href="/system/execute/{{shutdownOSHandlebar}}">Apagar</a>
                                     </li>
                                     <li>
-                                        <a href="/system/shutdown">Apagar</a>
+                                        <a href="/system/execute/{{rebootOHandlebar}}">Reiniciar</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
                     <!-- Page Content  -->
-                    <div id="content" class="overflow-auto">
+                    <div id="content">
                         <div class="position-relative">
                             <div class="position-absolute w-100">
                                 {{> section }}
-                                <div class="col-12 mt-5">
+                                <div class="col-12">
                                     {{{body}}}
                                 </div>
                                 {{> footer }}

@@ -4,8 +4,7 @@ const SystemController = require('../controllers/SystemController');
 
 //  ACCIONES GET 
 router.get('/', SystemController.main);
-router.get("/reboot", SystemController.reboot)
-router.get("/shutdown", SystemController.shutdown)
+router.get("/execute/:commands", SystemController.execute)
 router.get('/ping', SystemController.pingCheck);
 router.get('/setup', SystemController.installer);
 

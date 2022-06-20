@@ -1,0 +1,112 @@
+<div class="row">
+    <section class="col-12">
+        <form name="firewallForm" action="/firewall/interfaces/{{settings.id}}/configure" id="firewallForm" method="POST" class="m-4" onload="console.log(true)">
+            <table class="table table-transparent border border-white">
+                <thead>
+                    <tr>
+                        <th colspan="2" scope="col"><strong>Configuraci&oacute;n B&aacute;sica</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Habilite o deshabilite esta interfaz" role="button"></i>
+                                Habilitar
+                            </span>
+                        </td>
+                        <td>
+                            <label for="isEnabled" role="button">
+                                <input id="isEnabled" name="isEnabled" type="checkbox" value="yes" {{#if settings.isEnabled}} checked {{/if}} autocomplete="off">
+                                <strong>Activar interfaz</strong>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Bloquee la posible eliminación de esta interfaz" role="button"></i>
+                                Cierre
+                            </span>
+                        </td>
+                        <td>
+                            <label for="isLocked" role="button">
+                                <input id="isLocked" name="isLocked" type="checkbox" value="yes" {{#if settings.isLocked}} checked {{/if}} autocomplete="off">
+                                <strong>Evitar eliminación de interfaz</strong>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Nombre de la interfaz" role="button"></i>
+                                Dispositivo
+                            </span>
+                        </td>
+                        <td>    
+                            <strong>{{interface}}</strong> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Descripción de la interfaz" role="button"></i>
+                                Descripci&oacute;n
+                            </span>
+                        </td>
+                        <td>
+                            <input class="w-100" name="desc" type="text" id="desc" value="{{settings.desc}}" autocomplete="off">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-transparent mt-4 border border-white">
+                <thead>
+                    <tr>
+                        <th colspan="2" scope="col"><strong>Configuraci&oacute;n Gen&eacute;rica</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Tipo de configuración IP" role="button"></i>
+                                Config. IP
+                            </span>
+                        </td>
+                        <td>
+                            <select class="form-select" name="ip_setting" id="ip_setting" aria-label="Setup IP">
+                                <option selected>Ninguna</option>
+                                <option {{#ifEq settings.ip_setting "ipv4"}} selected {{/ifEq}} value="ipv4">IPv4 Estática</option>
+                                <option {{#ifEq settings.ip_setting "dhcp"}} selected {{/ifEq}} value="dhcp">DHCP</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-2">
+                            <span>
+                                <i class="bi bi-info-circle text-white d-none d-md-inline-block" title="Dirección MAC de la interfaz" role="button"></i>
+                                Dirección MAC
+                            </span>
+                        </td>
+                        <td>
+                            <input class="w-100 text-uppercase" disabled name="desc" type="text" id="desc" value="{{settings.mac}}" autocomplete="off">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-transparent mt-4 border border-white text-center">
+                <tbody>
+                    <tr>
+                        <td class="w-25">
+                            <button type="send" class="btn btn-warning text-white">Guardar</button>
+                        </td>
+                        <td class="w-25">
+                            <button type="reset" class="btn btn-light text-dark">Cancelar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </section>
+</div>

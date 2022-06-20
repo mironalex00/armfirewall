@@ -1,7 +1,6 @@
 const { response } = require('express');
-const {execSync} = require('child_process');
-const {exec} = require('child_process');
 const logger = require('../utils/logger');
+const {execShell, execShellArray} = require('../utils/execShell');
 const ping = require('ping');
 
 //  FUNCIONES NO EXPORTABLES
@@ -25,38 +24,11 @@ function pingtest(host) {
     });
   });
 }
-function execShell(command, callback) {
-  exec(command, { encoding: 'utf8' }, (err) => {
-    if(!err) {
-      callback(null)
-    }else{
-      callback(err)
-    }
-  });
-}
-function checkPermissions(callback){
-  execShell('groups arm-firewall | grep -c sudo', (err) => {
-    if(err){
-      callback(err)
-    }else{
-      callback(null)
-    }
-  })
-}
 //  FUNCIONES EXPORTABLES
 function main(req, res){
-  checkUser(req, function(error, response){
-    if(error){
-      logger.error(error.message);
-      res.redirect('/auth/logout');
-    }else if(!response.success){
-      res.redirect('/auth/login');
-    }else{
-      res.redirect('/');
-    }
-  });
+  res.redirect('/dashboard');
 }
-function reboot(req, res){
+function execute(req, res){  
   checkUser(req, function(error, response){
     if(error){
       logger.error(error.message);
@@ -64,46 +36,8 @@ function reboot(req, res){
     }else if(!response.success){
       res.redirect('/auth/login');
     }else{
-      checkPermissions((errPerm) => {
-        if(errPerm){
-          logger.error('No permitido, tipo de servidor no Linux.');
-          res.status(500).send('No permitido, tipo de servidor no Linux.');
-        }else{
-          execShell(`echo "manager" | sudo -S reboot now`, (errExec) => {
-            if(errExec){
-              logger.error(`Error al ejecutar el comando (sudo -S reboot now), motivo: ${errExec.message.replace('\r\n', ' ')}`);
-              res.sendStatus(500);
-            }else{
-              res.sendStatus(201);
-            }
-          });
-        }
-      });
-    }
-  });
-}
-function shutdown(req, res){  
-  checkUser(req, function(error, response){
-    if(error){
-      logger.error(error.message);
-      res.redirect('/auth/logout');
-    }else if(!response.success){
-      res.redirect('/auth/login');
-    }else{
-      checkPermissions((errPerm) => {
-        if(errPerm){
-          logger.error('No permitido, tipo de servidor no Linux.');
-          res.status(500).send('No permitido, tipo de servidor no Linux.');
-        }else{
-          execShell(`echo "manager" | sudo -S shutdown now`, (errExec) => {
-            if(errExec){
-              logger.error(`Error al ejecutar el comando (sudo -S shutdown now), motivo: ${errExec.message.replace('\r\n', ' ')}`);
-              res.sendStatus(500);
-            }else{
-              res.sendStatus(201);
-            }
-          });
-        }
+      execShellArray(req.params.commands.split(',')).then(resp=>{
+        res.sendStatus(resp ? 200 : 500)
       });
     }
   });
@@ -117,34 +51,19 @@ function installer(req, res){
       res.redirect('/auth/login');
     }else{
       let execCommands = [
-        'apt update',
-        'apt upgrade -y',
-        'apt install curl mariadb-server -y',
-        'curl -s https://deb.nodesource.com/setup_16.x | sudo bash',
-        'apt install nodejs npm -y',
-        'curl https://gist.githubusercontent.com/Mins/4602864/raw/mysql_secure.sh > ~/init_mysql.sh',
-        'chmod -x ~/init_mysql.sh',
-        'sed -i "s/aptitude/apt/gi" ~/init_mysql.sh',
-        'bash ~/init_mysql.sh',
-        'rm ~/init_mysql.sh',
-        'ipconfig /all'
+        'echo "manager" | sudo -S -k apt update',
+        'echo "manager" | sudo -S -k apt upgrade -y',
+        'echo "manager" | sudo -S -k apt install curl mariadb-server -y',
+        'echo "manager" | sudo -S -k curl -s https://deb.nodesource.com/setup_16.x | sudo bash',
+        'echo "manager" | sudo -S -k apt install nodejs npm -y',
+        'echo "manager" | sudo -S -k curl https://gist.githubusercontent.com/Mins/4602864/raw/mysql_secure.sh > ~/init_mysql.sh',
+        'echo "manager" | sudo -S -k chmod -x ~/init_mysql.sh',
+        'echo "manager" | sudo -S -k sed -i "s/aptitude/apt/gi" ~/init_mysql.sh',
+        'echo "manager" | sudo -S -k bash ~/init_mysql.sh',
+        'echo "manager" | sudo -S -k rm ~/init_mysql.sh',
       ];
-      checkPermissions((errPerm) => {
-        if(errPerm){
-          logger.error('No permitido, tipo de servidor no Linux.');
-          res.status(500).send('No permitido, tipo de servidor no Linux.');
-        }else{
-          // ... implementar ejecutar comandos dentro de bucle
-          const c = execCommands.join(" && ");
-          execShell(`echo "manager" | sudo -S ${c}`, (errExec) => {
-            if(errExec){
-              logger.error(`Error al ejecutar el comando (${c}), motivo: ${errExec.message.replace('\r\n', ' ')}`);
-              res.sendStatus(500);
-            }else{
-              res.sendStatus(201);
-            }
-          });
-        }
+      execShellArray(execCommands).then(resp=>{
+        res.sendStatus(resp ? 200 : 500)
       });
     }
   });
@@ -169,8 +88,7 @@ function pingCheck(req, res) {
 // EXPORTACIONES
 module.exports = {
   main,
-  reboot,
-  shutdown,
+  execute,
   installer,
   pingCheck
 }
