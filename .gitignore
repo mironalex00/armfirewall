@@ -1,0 +1,9 @@
+# Modulos de NODEJS
+/node_modules
+# Ignorar private
+/.private
+# Ignorar logs
+logs
+*.log
+# Ignorar SQL
+*.sql
