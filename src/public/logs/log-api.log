@@ -8,3 +8,12 @@ warn: Añadida interfaz (Wi-Fi). Fecha 2022-06-21T08:26:02.159Z
 warn: Añadida interfaz (VirtualBox Host-Only Network #2). Fecha 2022-06-21T08:26:08.474Z
 warn: Añadida interfaz (VirtualBox Host-Only Network). Fecha 2022-06-21T08:26:12.991Z
 info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Bloqueado intento de solicitud de recurso en construcción.
+warn: Añadida interfaz (Wi-Fi). Fecha 2022-06-21T08:40:53.426Z
+warn: Añadida interfaz (VirtualBox Host-Only Network #2). Fecha 2022-06-21T08:41:02.750Z
+warn: Añadida interfaz (VirtualBox Host-Only Network). Fecha 2022-06-21T08:41:04.718Z

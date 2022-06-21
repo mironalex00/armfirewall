@@ -1,5 +1,6 @@
 # Modulos de NODEJS
 /node_modules
+*-lock.json
 # Ignorar private
 /.private
 # Ignorar logs
