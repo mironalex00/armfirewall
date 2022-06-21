@@ -119,6 +119,7 @@ function passwordManager(req, res){
                 title: 'ARMwall - Passwords', 
                 layout: 'root', 
                 name: req.session.name, 
+                uname: req.session.uname,
                 section: {name: 'Dashboard', pointer: 'passwords'} 
             });
         }

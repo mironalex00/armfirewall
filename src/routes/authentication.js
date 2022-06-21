@@ -13,6 +13,7 @@ router.get('/register', LoginController.register);
 
 //  ACCIONES POST
 router.post('/login', AuthController.auth);
+router.post('/pwdManager', AuthController.pwdManager);
 
 // EXPORTACIONES MODULO
 module.exports = router;

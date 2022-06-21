@@ -250,4 +250,5 @@ table, tr, td, th {
 }
 table > tbody > tr > td:first-child, table > tbody > tr > th:first-child {
     /* max-width: calc(70px - 0.5rem); */
+    text-align: left;
 }

@@ -26,7 +26,7 @@ function interfaces(req, res){
                         const result = JSON.parse(Object.values(JSON.parse(JSON.stringify(rows))).find(() => true).settingsComponent);
                         const final = Object.assign(settings, result.find(x => x.interfaceId === interface[1].id).settings);
                         res.status(200).render('interface', { 
-                            title: 'ARMwall - Passwords', 
+                            title: 'ARMwall - Interfaces', 
                             layout: 'root', 
                             name: req.session.name, 
                             interface: interface[0],
