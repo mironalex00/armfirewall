@@ -2,7 +2,7 @@
     <div id="gutter">
         <span>1</span>
     </div>
-    <textarea rows="5"></textarea>
+    <textarea id="content" rows="5"></textarea>
 </div>
 <script>
     const input = document.querySelector('#editor > textarea');
@@ -22,6 +22,7 @@
     }
     window.addEventListener('load', (e) => {
         getLogResult();
+        resizeNavbar(document.getElementById('content').scrollHeight);
     })
     input.addEventListener('focus', (e) => {
         if(!e.target.hasAttribute('disabled')) e.target.setAttribute('disabled', '');

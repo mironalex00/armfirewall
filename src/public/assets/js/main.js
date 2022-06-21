@@ -33,7 +33,16 @@ function updateEditor(recVal = "", input) {
 function getPosition(string, subString, index) {
     return string.split(subString, index).join(subString).length;
 }
+function resizeNavbar(scrollHeight = document.documentElement.scrollHeight){
+    const navbar = document.getElementById('sidebar');
+    if(navbar){
+        scrollHeight += 'px';
+        navbar.style.height = scrollHeight;
+        navbar.firstElementChild.style.height = scrollHeight;
+    }
+}
 window.addEventListener('load', e => {
+    resizeNavbar()
     const url = location.href.substring(getPosition(location.href, '/', 3)).trim();
     if (url !== null && url !== "") {
         const showing = [...document.querySelectorAll('ul.collapse.show')];

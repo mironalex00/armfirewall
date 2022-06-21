@@ -94,7 +94,7 @@ app.use(bodyParser.json());
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: 'web',
+    password: '',
     port: 3306,
     database: 'armfirewall'
 }, 'pool'));

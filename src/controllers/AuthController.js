@@ -94,6 +94,7 @@ function pwdManager(req, res){
                                         if(err) logger.error(err.message);
                                         res.status(500).send('Ocurrió un error inesperado, inténtelo más tarde...');
                                     }else{
+                                        logger.warn(`El usuario ${req.session.name} ha cambiado su contraseña. Fecha ${new Date().toJSON()}`)
                                         res.status(201).send("Se ha cambiado la contraseña. Se le redirigirá automáticamente para iniciar sesión nuevamente.");
                                     }
                                 });
