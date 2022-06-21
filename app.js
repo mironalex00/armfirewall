@@ -1,6 +1,7 @@
 //  IMPORTACIONES SISTEMA
 const path = require('path');
 const fs = require('fs');
+const dotenv = require('dotenv')
 const {getInterfaces} = require('./src/utils/network');
 //  IMPORTACIONES SERVIDOR ESCUCHA
 const http = require('http');
@@ -21,6 +22,10 @@ const authRoutes = require('./src/routes/authentication');
 const sysRoutes = require('./src/routes/system');
 const firewallRoutes = require('./src/routes/firewall');
 const { handlebars } = require('hbs');
+
+//  SE CONFIGURA DOTENV 
+dotenv.config({ path: './.env' })
+dotenv.config({ path: `./.env.${process.env.NODE_ENV}` });
 
 //  DECLARACION APP
 const app = express();
@@ -92,11 +97,11 @@ app.use(bodyParser.json());
 
 //  SE LE INDICA A LA APLICACION QUE SE USARA MYSQL
 app.use(myConnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    port: 3306,
-    database: 'armfirewall'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
 }, 'pool'));
 
 //  SE LE INDICA A LA APLICACION LA CONFIGURACION DE LAS SESIONES

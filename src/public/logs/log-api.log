@@ -17,3 +17,15 @@ warn: Bloqueado intento de solicitud de recurso en construcción.
 warn: Añadida interfaz (Wi-Fi). Fecha 2022-06-21T08:40:53.426Z
 warn: Añadida interfaz (VirtualBox Host-Only Network #2). Fecha 2022-06-21T08:41:02.750Z
 warn: Añadida interfaz (VirtualBox Host-Only Network). Fecha 2022-06-21T08:41:04.718Z
+info: Application listening on port 443
+error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+info: Application listening on port 443
+error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
+info: Application listening on port 443
+error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Application listening on port 443
+info: Usuario (Administrador Firewall) ha iniciado una nueva sesión...
+warn: Añadida interfaz (Ethernet 2). Fecha 2022-06-21T10:32:24.904Z
