@@ -51,16 +51,7 @@ function installer(req, res){
       res.redirect('/auth/login');
     }else{
       let execCommands = [
-        'echo "manager" | sudo -S -k apt update',
-        'echo "manager" | sudo -S -k apt upgrade -y',
-        'echo "manager" | sudo -S -k apt install curl mariadb-server -y',
-        'echo "manager" | sudo -S -k curl -s https://deb.nodesource.com/setup_16.x | sudo bash',
-        'echo "manager" | sudo -S -k apt install nodejs npm -y',
-        'echo "manager" | sudo -S -k curl https://gist.githubusercontent.com/Mins/4602864/raw/mysql_secure.sh > ~/init_mysql.sh',
-        'echo "manager" | sudo -S -k chmod -x ~/init_mysql.sh',
-        'echo "manager" | sudo -S -k sed -i "s/aptitude/apt/gi" ~/init_mysql.sh',
-        'echo "manager" | sudo -S -k bash ~/init_mysql.sh',
-        'echo "manager" | sudo -S -k rm ~/init_mysql.sh',
+        'echo -e "manager" | sudo -Sk -u armwall apt update',
       ];
       execShellArray(execCommands).then(resp=>{
         res.sendStatus(resp ? 200 : 500)

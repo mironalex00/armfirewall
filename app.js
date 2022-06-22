@@ -50,26 +50,23 @@ function interfacesHandlebar(path){
     const interfaces = getInterfaces();
     const txtPath = path.includes("/") ? path.substring(path.lastIndexOf("/") + 1) + " de" : path;
     let htmlRes = '';
-    if(Object.keys(interfaces).length === 0){
+    if(interfaces.length === 0){
         htmlRes = `
         <li>
             <a>No interfaces avaliable</a>
         </li>
         `
     }
-    if(Object.keys(interfaces).length > 0){
-        for (const interface in interfaces) {
-            if (Object.hasOwnProperty.call(interfaces, interface)) {
-                const element = interfaces[interface];
-                htmlRes += `    
-                <li>
-                    <a href="/${path}/${element.id}" title="Configure ${txtPath} ${interface}" class="text-truncate" style="max-width: 250px">
-                        Configurar ${interface}
-                    </a>
-                </li>
-                 `
-            }
-        }
+    if(interfaces.length > 0){
+        interfaces.map((key, index) => {
+            htmlRes += `    
+            <li>
+                <a href="/${path}/${key.interfaceId}" title="Configure ${txtPath} ${key.interfaceName}" class="text-truncate" style="max-width: 250px">
+                    Configurar ${key.interfaceName}
+                </a>
+            </li>
+            `
+        })
     }
     return new handlebars.SafeString(htmlRes);
 }
@@ -94,7 +91,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
 //  SE LE INDICA A LA APLICACION QUE SE USARA MYSQL
 app.use(myConnection(mysql, {
     host: process.env.DB_HOST,

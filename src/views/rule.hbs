@@ -1,0 +1,100 @@
+<div class="row">
+    <section class="col-12">
+        <div class="m-4 table-responsive">
+            <table class="table table-transparent border border-white">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th class="d-none" scope="col">Protocolo</th>
+                        <th scope="col">Or&iacute;gen</th>
+                        <th scope="col">Puerto</th>
+                        <th scope="col">Destino</th>
+                        <th scope="col">Gateway</th>
+                        <th scope="col">Descripci&oacute;n</th>
+                        <th colspan="2" scope="col" class="text-end">
+                            <button type="button" onclick="location.replace(location.href + '/add')" class="col btn btn-light text-dark fw-bold rounded-2 mt-2" id="btnAction_AddRule">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                            <button type="button" onclick="location.replace(location.href + '/restore')" class="col btn btn-light text-dark fw-bold rounded-2 mt-2" id="btnAction_RestoreRules">
+                                <i class="bi bi-bootstrap-reboot"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{#if settings.rules}}
+                            {{#each settings.rules}}
+                                <th scope="row">{{@index}}</th>
+                                <td>{{this.protocol}}</td>
+                                <td>{{this.origin}}</td>
+                                <td>{{this.port}}</td>
+                                <td>{{this.destiny}}</td>
+                                <td>{{this.gateway}}</td>
+                                <td>{{this.desc}}</td>
+                                <td class="text-end">
+                                    <button type="button" class="col btn btn-light text-dark fw-bold rounded-2" id="btnAction_SwitchStatus_{{@index}}">
+                                        <i class="bi bi-arrow-down-up"></i>
+                                    </button>
+                                    <button type="button" class="col btn btn-light text-dark fw-bold rounded-2" id="btnAction_EditRule_{{@index}}">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button type="button" class="col btn btn-danger text-light fw-bold rounded-2" id="btnAction_RemoveRule_{{@index}}">
+                                        <i class="bi bi-trash2-fill"></i>
+                                    </button>
+                                </td>
+                            {{/each}}
+                        {{else}}
+                            <th scope="row">{{@index}}</th>
+                            <td colspan="6" class="fw-bolder text-upper text-center">No existen aún reglas establecidas por el usuario</td>
+                        {{/if}}
+                    </tr>
+                    <tr>
+                        <td class="p-2" colspan="8" scope="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="bi bi-play-fill fs-5 text-success me-3"></i>
+                                        <span>Permitir</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-x fs-5 text-danger me-3"></i>
+                                        <span>Bloquear</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-x-circle fs-5 text-danger me-3"></i>
+                                        <span>Rechazar</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-play-fill fs-5 text-info me-3"></i>
+                                        <span>Registro</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <i class="bi bi-play-fill fs-5 text-light me-3"></i>
+                                        <span>* (disabled)</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-x fs-5 text-light me-3"></i>
+                                        <span>* (disabled)</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-x-circle fs-5 text-light me-3"></i>
+                                        <span>* (disabled)</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="bi bi-play-fill fs-5 text-light me-3"></i>
+                                        <span>* (disabled)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

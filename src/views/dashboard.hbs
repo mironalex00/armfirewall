@@ -1,49 +1,145 @@
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
-<h2 class="text-white">Soy el Dashboard</h2>
+<div class="m-4">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <table id="sysinfo" class="table table-transparent border border-white">
+                <thead class="bg-white fw-bolder">
+                    <tr>
+                        <th class="text-dark" colspan="2" scope="col">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 pt-2"><strong>Informaci&oacute;n del Sistema</strong></div>
+                                    <div class="col-6 text-end">
+                                        <button type="button" class="btn btn-light text-dark text-center" style="width: 50px" onclick="document.getElementById('sysinfo').parentNode.remove()">
+                                            <i class="bi bi-x fs-5 text-dark me-3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2">
+                                <div class="row">
+                                    <div class="col-4 pt-2"><strong>Nombre</strong></div>
+                                    <div class="col text-center">
+                                        <p>N/A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2">
+                                <div class="row">
+                                    <div class="col-4 pt-2"><strong>Tipo CPU</strong></div>
+                                    <div class="col text-center">
+                                        <p>N/A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2">
+                                <div class="row">
+                                    <div class="col-4 pt-2"><strong>Fecha/Hora Actual</strong></div>
+                                    <div class="col text-center">
+                                        <p>N/A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2 pb-2">
+                                <div class="row">
+                                    <div class="col-4"><strong>Uso CPU</strong></div>
+                                    <div class="col text-center">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2 pb-2">
+                                <div class="row">
+                                    <div class="col-4"><strong>Uso Memoria RAM</strong></div>
+                                    <div class="col text-center">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="col-12 pt-2 pb-2">
+                                <div class="row">
+                                    <div class="col-4"><strong>Uso Memoria ROM</strong></div>
+                                    <div class="col text-center">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="sysinfo" class="table table-transparent border border-white mt-2">
+                <thead class="bg-white fw-bolder">
+                    <tr>
+                        <th class="text-dark" colspan="2" scope="col">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 pt-2"><strong>Interfaces</strong></div>
+                                    <div class="col-6 text-end">
+                                        <button type="button" class="btn btn-light text-dark text-center" style="width: 50px" onclick="document.getElementById('sysinfo').parentNode.remove()">
+                                            <i class="bi bi-x fs-5 text-dark me-3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-lg-6">
+            <table id="sysinfo" class="table table-transparent border border-white">
+                <thead class="bg-white fw-bolder">
+                    <tr>
+                        <th class="text-dark" colspan="2" scope="col">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 pt-2"><strong>Servicios</strong></div>
+                                    <div class="col-6 text-end">
+                                        <button type="button" class="btn btn-light text-dark text-center" style="width: 50px" onclick="document.getElementById('sysinfo').parentNode.remove()">
+                                            <i class="bi bi-x fs-5 text-dark me-3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -64,6 +64,7 @@ INSERT INTO `component` (`idComponent`, `fileLocation`, `isEnabled`, `typeEnv`, 
 ('auth', 4, 1, 1, 0, NULL, 'es_ES', 6, 8, '2022-06-01'),
 ('interfaces', 2, 1, 1, 0, 'interfaces', 'es_ES', 2, 6, '2022-05-26'),
 ('pwdManager', 4, 1, 1, 1, 'auth', 'es_ES', 5, 6, '2022-06-01'),
+('rules', 2, 1, 1, 0, NULL, 'es_ES', 7, 6, '2022-06-02'),
 ('setup', 1, 1, 1, 0, 'setup', 'es_ES', 1, 8, '2022-05-10');
 
 -- --------------------------------------------------------
@@ -84,9 +85,10 @@ CREATE TABLE `configuration` (
 
 INSERT INTO `configuration` (`idConfiguration`, `idComponent`, `valConfiguration`) VALUES
 (1, 'setup', '{\"completed\": false}'),
-(2, 'interfaces', '[{\"interfaceId\":3,\"settings\":{\"isEnabled\":true,\"ip_setting\":\"ipv4\",\"isLocked\":false,\"desc\":\"Interfaz Windows 10\"}},{\"interfaceId\":11,\"settings\":{\"isEnabled\":true,\"ip_setting\":\"dhcp\",\"isLocked\":true,\"desc\":\"Interfaz WiFi Windows 10\"}}]'),
-(5, 'pwdManager', '{}'),
-(6, 'auth', '{}');
+(2, 'interfaces', '[{\"interfaceId\":3,\"settings\":{\"isEnabled\":true,\"ip_setting\":\"ipv4\",\"isPrimary\":false,\"isLocked\":false,\"desc\":\"Interfaz VirtualBox Host-Only Network\"}},{\"interfaceId\":11,\"settings\":{\"isEnabled\":true,\"ip_setting\":\"dhcp\",\"isPrimary\":true,\"isLocked\":true,\"desc\":\"Interfaz Wi-Fi\"}}]'),
+(5, 'pwdManager', '{\"enabled\": true}'),
+(6, 'auth', '{}'),
+(7, 'rules', '[]');
 
 -- --------------------------------------------------------
 
@@ -217,6 +219,20 @@ INSERT INTO `role` (`idRole`, `typeRole`, `descRole`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `rules`
+-- (See below for the actual view)
+--
+CREATE TABLE `rules` (
+`nameComponent` varchar(255)
+,`fileLocation` varchar(255)
+,`isEnabled` tinyint(1)
+,`settingsComponent` longtext
+,`privilege` enum('---','--x','-w-','-wx','r---','r-x','rw-','rwx')
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -240,7 +256,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`authUser`, `authPassword`, `firstName`, `lastName`, `firstSurname`, `lastSurname`, `fullName`, `authEmail`, `termsAccepted`, `accountStatus`, `idPrivilege`, `registrationUser`) VALUES
-('admin', '$2b$12$A.xazCbo8ydIipDY3V5z9O5mhzTCsatj/AyVbpECkqwz/X7Y2UG6q', 'Administrador', '', 'Firewall', '', 'Administrador Firewall', 'admin@arm-firewall.com', 1, 1, 8, '2022-05-02');
+('admin', '$2b$12$.pbwr9MfJxULE75MSfNNbuwLOaQmsb9xRtYTmtS9Ws9.yPWEbK.lq', 'Administrador', '', 'Firewall', '', 'Administrador Firewall', 'admin@arm-firewall.com', 1, 1, 8, '2022-05-02');
 
 -- --------------------------------------------------------
 
@@ -266,6 +282,15 @@ CREATE TABLE `userdata` (
 DROP TABLE IF EXISTS `interfaces`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `interfaces`  AS SELECT `c`.`idComponent` AS `nameComponent`, `fs`.`fileLocation` AS `fileLocation`, `c`.`isEnabled` AS `isEnabled`, `sc`.`valConfiguration` AS `settingsComponent`, `p`.`permPrivilege` AS `privilege` FROM ((((`component` `c` join `filestructure` `fs`) join `configuration` `sc`) join `role` `r`) join `privilege` `p`) WHERE `c`.`privilegeComponent` = `p`.`idPrivilege` AND `c`.`settingsComponent` = `sc`.`idConfiguration` AND `c`.`fileLocation` = `fs`.`idStructure` AND `p`.`idRole` = `r`.`idRole` AND `c`.`idComponent` like '%interface%' ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `rules`
+--
+DROP TABLE IF EXISTS `rules`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rules`  AS SELECT `c`.`idComponent` AS `nameComponent`, `fs`.`fileLocation` AS `fileLocation`, `c`.`isEnabled` AS `isEnabled`, `sc`.`valConfiguration` AS `settingsComponent`, `p`.`permPrivilege` AS `privilege` FROM ((((`component` `c` join `filestructure` `fs`) join `configuration` `sc`) join `role` `r`) join `privilege` `p`) WHERE `c`.`privilegeComponent` = `p`.`idPrivilege` AND `c`.`settingsComponent` = `sc`.`idConfiguration` AND `c`.`fileLocation` = `fs`.`idStructure` AND `p`.`idRole` = `r`.`idRole` AND `c`.`idComponent` like '%rule%' ;
 
 -- --------------------------------------------------------
 
@@ -359,7 +384,7 @@ ALTER TABLE `applicationstring`
 -- AUTO_INCREMENT for table `configuration`
 --
 ALTER TABLE `configuration`
-  MODIFY `idConfiguration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idConfiguration` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `enviroment`
