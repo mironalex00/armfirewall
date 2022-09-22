@@ -21,7 +21,7 @@ function interfaces(req, res){
                 conn.query('SELECT * FROM interfaces', (err, rows) => {
                     if(err){
                         logger.error(err.message);
-                        res.status(500).send('Erlror desconocido');
+                        res.status(500).send('Error desconocido');
                     }else{
                         const result = JSON.parse(Object.values(JSON.parse(JSON.stringify(rows))).find(() => true).settingsComponent);
                         const newRes = result.find(x => x.interfaceId === interface.interfaceId,);
@@ -45,13 +45,13 @@ function interfaces(req, res){
                                 }
                             });
                         }else{
-                            const final = Object.assign(settings, newRes.settings);
+                            const final = Object.assign({'id': interface.interfaceId}, Object.assign(settings, newRes.settings));
                             res.status(200).render('interface', { 
                                 title: 'ARMwall - Interfaces', 
                                 layout: 'root', 
                                 name: req.session.name, 
                                 interface: interface.interfaceName,
-                                settings: final,
+                                settings: { ...final, interfaceId: interface.interfaceId },
                                 section: {name: 'Cortafuegos', pointer: `interfaz ${interface.interfaceId}`} 
                             });
                         }
