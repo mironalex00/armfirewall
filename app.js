@@ -38,10 +38,10 @@ function yearHandlebar(){
     return new Date().getFullYear();
 }
 function shutdownOSHandlebar(){
-    return process.platform === "win32" ? "shutdown -r -t 0" : "systemctl reboot";
+    return process.platform === "win32" ? "shutdown -s -t 0" : "systemctl poweroff";
 }
 function rebootOHandlebar(){
-    return process.platform === "win32" ? "shutdown -s -t 0" : "systemctl poweroff";
+    return process.platform === "win32" ? "shutdown -r -t 0" : "systemctl reboot";
 }
 function equalsHandlebar(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
